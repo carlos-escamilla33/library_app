@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Noto+Sans+JP:wght@900&family=Open+Sans&family=Roboto:wght@900&display=swap');
+
+body {
+    background-color: #102C57;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.title {
+    font-size: 3.5rem;
+}
+
