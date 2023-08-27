@@ -29,3 +29,41 @@ body {
     padding: 30px;
 }
 
+#form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 3px;
+    height: 300px;
+    width: 400px;
+}
+
+input {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+/* p { */
+    /* grid-column-start: 0;
+    grid-column-end: 2;
+} */
+
+.submit, .close {
+    grid-row-start: 4;
+    border: none;
+    color: white;
+}
+
+.submit {
+    background-color: green;
+}
+
+.close {
+    background-color: red;
+}
