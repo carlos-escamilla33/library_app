@@ -38,15 +38,28 @@ body {
 form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-gap: 3px;
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 5px;
     height: 300px;
-    width: 400px;
+    width: 450px;
+    border-radius: 20px;
 }
 
 input {
     grid-column-start: 1;
     grid-column-end: 3;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: solid white;
+    font-size: 16px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+input:nth-child(1) {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;  
 }
 
 .submit, .close {
@@ -54,12 +67,15 @@ input {
     border: none;
     color: white;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .submit {
     background-color: green;
+    border-bottom-left-radius: 10px;
 }
 
 .close {
     background-color: red;
+    border-bottom-right-radius: 10px;
 }
