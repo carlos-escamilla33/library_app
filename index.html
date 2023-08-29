@@ -17,9 +17,13 @@
 
     <div id="form-container">
         <form>
-            <input type="text" placeholder="Author Name">
-            <input type="text" placeholder="Book Title">
-            <input type="number" placeholder="Number of Pages">
+            <input type="text" placeholder="Author Name" class="author">
+            <input type="text" placeholder="Book Title" class="book-title">
+            <input type="number" placeholder="Number of Pages" class="pages">
+            <div class="checkbox-container">
+                <label for="checkbox" class="read-book-label">Read Book?</label>
+                <input type="checkbox" class="checkbox">
+            </div>
             <button class="submit">Submit</button>
             <button class="close">Close</button>
         </form>

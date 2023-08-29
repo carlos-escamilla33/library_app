@@ -9,6 +9,9 @@ function addBookToLibrary() {
     // takes title of book and store it in a variable
     // takes author
     // takes number of pages
+    const author = document.querySelector(".author").value;
+    const bookTitle = document.querySelector(".bookTitle").value;
+    const pages = document.querySelector(".pages").value;
     // whether its been read or not
 }
 
