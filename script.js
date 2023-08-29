@@ -1,18 +1,20 @@
 const myLibrary = [];
+const bookForm = document.querySelector(".form");
 
-function Book() {
-    // the constructor
+function Book(author, bookTitle, pages) {
+    this.author = author;
+    this.bookTitle = bookTitle;
+    this.pages = pages;
 }
 
-function addBookToLibrary() {
-    // takes user input and stores it into a variable
-    // takes title of book and store it in a variable
-    // takes author
-    // takes number of pages
+function addBookToLibrary(e) {
+    e.preventDefault();
     const author = document.querySelector(".author").value;
-    const bookTitle = document.querySelector(".bookTitle").value;
+    const bookTitle = document.querySelector(".book-title").value;
     const pages = document.querySelector(".pages").value;
-    // whether its been read or not
+    const newBook = new Book(author, bookTitle, pages);
+    console.log(newBook);
+    myLibrary.push(newBook);
 }
 
 function outputBooks() {
@@ -20,3 +22,5 @@ function outputBooks() {
         console.log(`these are the books ${myLibrary[i]}`);
     }
 }
+
+bookForm.addEventListener("submit", addBookToLibrary);
