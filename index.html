@@ -12,7 +12,7 @@
 <body>
     <div id="title-container">
         <h1 class="title">Book Library App</h1>
-        <button class="submit-btn" type="submit">Add Book</button>
+        <button data-modal-target="#form-container" class="submit-btn" type="submit">Add Book</button>
     </div>
 
     <div id="form-container">
@@ -24,10 +24,11 @@
                 <label for="checkbox" class="read-book-label">Read Book?</label>
                 <input type="checkbox" class="checkbox">
             </div>
-            <button class="submit">Submit</button>
-            <button class="close">Close</button>
+            <button class="submit" type="submit">Submit</button>
+            <button data-close-button class="close">Close</button>
         </form>
     </div>
+    <div id="overlay"></div>
 </body>
 
 </html>
