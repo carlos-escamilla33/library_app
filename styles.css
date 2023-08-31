@@ -30,6 +30,7 @@ body {
 }
 
 #form-container {
+    position: relative;
     z-index: 10;
     display: flex;
     justify-content: center;
@@ -40,7 +41,6 @@ body {
 
 #form-container.active {
     transform: scale(1);
-    position: relative;
 }
 
 .form {
