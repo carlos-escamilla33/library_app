@@ -1,10 +1,8 @@
 const myLibrary = [];
-const bookForm = document.querySelector(".form");
+const submitFormBtns = document.querySelectorAll("[data-submit-button]");
 const openFormBtns = document.querySelectorAll("[data-form-target]");
 const closeFormBtns = document.querySelectorAll("[data-close-button]");
 const overlay = document.getElementById("overlay");
-
-console.log(closeFormBtns);
 
 function Book(author, bookTitle, haveRead, pages) {
     this.author = author;
@@ -19,17 +17,14 @@ function outputBooks() {
     }
 }
 
-function addBookToLibrary(e) {
-    e.preventDefault();
+function addBookToLibrary() {
     const author = document.querySelector(".author").value;
     const bookTitle = document.querySelector(".book-title").value;
     const haveRead = document.querySelector(".checkbox").checked;
     const pages = document.querySelector(".pages").value;
     const newBook = new Book(author, bookTitle, haveRead, pages);
 
-    console.log(newBook);
     myLibrary.push(newBook);
-    outputBooks();
 }
 
 function openForm(form) {
@@ -57,10 +52,16 @@ openFormBtns.forEach(btn => {
 
 closeFormBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-        console.log("click close!")
         const form = btn.closest("#form-container");
         closeForm(form);
     });
 });
 
-bookForm.addEventListener("submit", addBookToLibrary);
+submitFormBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const form = btn.closest("#form-container");
+        addBookToLibrary();
+        closeForm(form);
+    });
+});
