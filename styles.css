@@ -36,7 +36,7 @@ body {
     justify-content: center;
     align-items: center;
     transform: scale(0);
-    transition: 200ms ease-in-out;
+    transition: 300ms ease-in-out;
 }
 
 #form-container.active {
@@ -122,4 +122,21 @@ input.checkbox {
 #overlay.active {
     opacity: 1;
     pointer-events: none;
+}
+
+#books-container {
+    position: absolute;
+    display: flex;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 250px;
+    background-color: green;
+    border-radius: 10px;
+    font-size: 1.2rem;
 }
