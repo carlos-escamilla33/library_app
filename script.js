@@ -4,7 +4,7 @@ const openFormBtns = document.querySelectorAll("[data-form-target]");
 const closeFormBtns = document.querySelectorAll("[data-close-button]");
 const overlay = document.getElementById("overlay");
 const booksContainer = document.getElementById("books-container");
-console.log(myLibrary);
+
 function Book(author, bookTitle, haveRead, pages) {
     this.author = author;
     this.bookTitle = bookTitle;
@@ -16,8 +16,6 @@ function Book(author, bookTitle, haveRead, pages) {
 function outputBooks() {
     const lastBook = myLibrary.length - 1;
     const currBook = myLibrary[lastBook];
-
-    const newBookDiv = document.createElement("div");
 
     const title = document.createElement("h3");
     title.textContent = `Title: ${currBook.bookTitle}`;
@@ -31,11 +29,15 @@ function outputBooks() {
     const pages = document.createElement("p");
     pages.textContent = `Pages: ${currBook.pages}`;
 
-    newBookDiv.appendChild(title);
-    newBookDiv.appendChild(author);
-    newBookDiv.appendChild(haveRead);
-    newBookDiv.appendChild(pages);
+    const bookInfo = [title, author, haveRead, pages];
+    const newBookDiv = document.createElement("div");
+
+    for (const info of bookInfo) {
+        newBookDiv.appendChild(info);
+    };
+
     newBookDiv.classList.add("book");
+
 
     booksContainer.appendChild(newBookDiv);
 }
@@ -51,9 +53,15 @@ function createBook() {
 
 function addBookToLibrary() {
     newBook = createBook();
-    console.log(newBook);
     myLibrary.push(newBook);
     outputBooks();
+}
+
+function clearFormFields() {
+    document.querySelector(".author").value = "";
+    document.querySelector(".book-title").value = "";
+    document.querySelector(".checkbox").checked = false;
+    document.querySelector(".pages").value = "";
 }
 
 function openForm(form) {
@@ -83,6 +91,7 @@ closeFormBtns.forEach(btn => {
     btn.addEventListener("click", (e) => {
         e.preventDefault();
         const form = btn.closest("#form-container");
+        clearFormFields();
         closeForm(form);
     });
 });
@@ -90,8 +99,9 @@ closeFormBtns.forEach(btn => {
 submitFormBtns.forEach(btn => {
     btn.addEventListener("click", (e) => {
         e.preventDefault();
-        const form = btn.closest("#form-container");
+        const formContainer = btn.closest("#form-container");
         addBookToLibrary();
-        closeForm(form);
+        clearFormFields();
+        closeForm(formContainer);
     });
 });
